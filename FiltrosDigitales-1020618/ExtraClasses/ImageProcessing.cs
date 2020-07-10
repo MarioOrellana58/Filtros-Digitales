@@ -49,5 +49,29 @@ namespace FiltrosDigitales_1020618
             }
             return newBitmap;
         }
+
+        public Bitmap ApplyImageFilter(Bitmap grayscaleImage, double[,] filter)
+        {
+            var outputImage = new Bitmap(grayscaleImage.Width,grayscaleImage.Height);
+            var calculate = new Calculator();
+            for (int i = 0; i <= grayscaleImage.Width+2; i++)
+            {
+                for (int j = 0; j <= grayscaleImage.Height+2; j++)
+                {                    
+                    var imageRegion = new double[,] {
+                            { Convert.ToDouble(grayscaleImage.GetPixel(i,j)), Convert.ToDouble(grayscaleImage.GetPixel(i,j+1)), Convert.ToDouble(grayscaleImage.GetPixel(i,j+2))},
+                            { Convert.ToDouble(grayscaleImage.GetPixel(i+1,j)), Convert.ToDouble(grayscaleImage.GetPixel(i+1,j+1)), Convert.ToDouble(grayscaleImage.GetPixel(i+1,j+2))},
+                            { Convert.ToDouble(grayscaleImage.GetPixel(i+2,j)), Convert.ToDouble(grayscaleImage.GetPixel(i+2,j+1)), Convert.ToDouble(grayscaleImage.GetPixel(i+2,j+2))}
+                        };
+
+                    var newPixel = calculate.StandardizeResult(calculate.SumAll(calculate.MatrixMultiplication(imageRegion, filter)));                   
+
+                    
+                    outputImage.SetPixel(i+1, j+1, Color.FromArgb(newPixel) );
+                }
+            }
+
+            return outputImage;
+        }
     }
 }
