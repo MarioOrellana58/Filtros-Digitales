@@ -8,67 +8,76 @@ namespace FiltrosDigitales_1020618
 {
     public class Filters
     {
-        public double[,] GetDefinedMatrixFor(string filterName)
+        public double[,] GetDefinedMatrix(int comboBoxIndex)
         {
-            switch (filterName)
+            switch (comboBoxIndex)
             {
-                case "blurred":
+                case 0:
+                    //blurred
                     return new double[,]
                                 {
                                      { 0.0625, 0.125, 0.0625 } ,
                                      { 0.125 , 0.25 , 0.125  } ,
                                      { 0.0625, 0.125, 0.0625 } 
                                 };
-                case "enhance":
+                case 1:
+                    //enhance
                     return new double[,]
                                 {
                                      { -2, -1, 0 } ,
                                      { -1,  1, 1 } ,
                                      {  0,  1, 2 } 
                                 };
-                case "lower sobel":
+                case 2:
+                    //lower sobel
                     return new double[,]
                                 {
                                      { -1, -2, -1 } ,
                                      {  0,  0,  0 } ,
                                      {  1,  2,  1 }
                                 };
-                case "upper sobel":
+                case 3:
+                    //upper sobel
                     return new double[,]
                                 {
                                      {  1,  2,  1 } ,
                                      {  0,  0,  0 } ,
                                      { -1, -2, -1 }
                                 };
-                case "left sobel":
+                case 4:
+                    //left sobel
                     return new double[,]
                                 {
                                      { 1, 0, -1 } ,
                                      { 2, 0, -2 } ,
                                      { 1, 0, -1 }
                                 };
-                case "right sobel":
+                case 5:
+                    //right sobel
                     return new double[,]
                                 {
                                      { -1, 0, 1 } ,
                                      { -2, 0, 2 } ,
                                      { -1, 0, 1 }
                                 };
-                case "outline":
+                case 6:
+                    //right sobel
                     return new double[,]
                                 {
                                      { -1, -1, -1 } ,
                                      { -1,  8, -1 } ,
                                      { -1, -1, -1 }
                                 };
-                case "sharpen":
+                case 7:
+                    //sharpen
                     return new double[,]
                                 {
                                      {  0, -1,  0 } ,
                                      { -1,  5, -1 } ,
                                      {  0, -1,  0 }
                                 };
-                case "original":
+                case 8:
+                    //original
                     return new double[,]
                                 {
                                      { 0, 0, 0 } ,
