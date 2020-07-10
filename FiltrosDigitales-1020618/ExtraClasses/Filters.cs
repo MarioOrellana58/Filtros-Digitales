@@ -61,7 +61,7 @@ namespace FiltrosDigitales_1020618
                                      { -1, 0, 1 }
                                 };
                 case 6:
-                    //right sobel
+                    //outline
                     return new double[,]
                                 {
                                      { -1, -1, -1 } ,
