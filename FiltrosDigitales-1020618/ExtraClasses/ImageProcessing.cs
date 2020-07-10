@@ -123,8 +123,10 @@ namespace FiltrosDigitales_1020618
 
 
             outputImage.SetPixel(0, 0, Color.FromArgb(outputImage.GetPixel(0, 1).R, outputImage.GetPixel(0, 1).G, outputImage.GetPixel(0, 1).B));
-            outputImage.SetPixel(0, outputImage.Width-1, Color.FromArgb(outputImage.GetPixel(0, outputImage.Width - 2).R, outputImage.GetPixel(0, outputImage.Width - 2).G, outputImage.GetPixel(0, outputImage.Width - 2).B));
-            outputImage.SetPixel(outputImage.Height-1, 0, Color.FromArgb(outputImage.GetPixel(0, 1).R, outputImage.GetPixel(0, 1).G, outputImage.GetPixel(0, 1).B));
+            outputImage.SetPixel(0, outputImage.Height - 1, Color.FromArgb(outputImage.GetPixel(0, outputImage.Height - 2).R, outputImage.GetPixel(0, outputImage.Height - 2).G, outputImage.GetPixel(0, outputImage.Height - 2).B));
+            outputImage.SetPixel(outputImage.Width - 1, 0, Color.FromArgb(outputImage.GetPixel(outputImage.Width - 2, 0).R, outputImage.GetPixel(outputImage.Width - 2, 0).G, outputImage.GetPixel(outputImage.Width - 2, 0).B));
+            outputImage.SetPixel(outputImage.Width - 1, outputImage.Height - 1, Color.FromArgb(outputImage.GetPixel(outputImage.Width - 2, outputImage.Height - 2).R, outputImage.GetPixel(outputImage.Width - 2, outputImage.Height - 2).G, outputImage.GetPixel(outputImage.Width - 2, outputImage.Height - 2).B));
+
 
             return outputImage;
         }
