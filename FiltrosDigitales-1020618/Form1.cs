@@ -1,8 +1,10 @@
-﻿using System;
+﻿using FiltrosDigitales_1020618.ExtraClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,18 +19,13 @@ namespace FiltrosDigitales_1020618
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void BtnUploadImage_Click(object sender, EventArgs e)
         {
             //Image upload code source: https://www.youtube.com/watch?v=sGP6u68k2hc
             try
             {                
                 var dialog = new OpenFileDialog();
-                dialog.Filter = "jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.*";
+                dialog.Filter = "jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png";
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     PBoriginalPic.ImageLocation = dialog.FileName;
@@ -39,6 +36,91 @@ namespace FiltrosDigitales_1020618
             {
                 MessageBox.Show("Hubo on error", "Error",  MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
+            }
+        }
+
+        private void P00_ValueChanged(object sender, EventArgs e)
+        {
+            CBfilters.SelectedIndex = 9;
+        }
+
+        private void P01_ValueChanged(object sender, EventArgs e)
+        {
+            CBfilters.SelectedIndex = 9;
+        }
+
+        private void P02_ValueChanged(object sender, EventArgs e)
+        {
+            CBfilters.SelectedIndex = 9;
+        }
+
+        private void P10_ValueChanged(object sender, EventArgs e)
+        {
+            CBfilters.SelectedIndex = 9;
+        }
+
+        private void P11_ValueChanged(object sender, EventArgs e)
+        {
+            CBfilters.SelectedIndex = 9;
+        }
+
+        private void P12_ValueChanged(object sender, EventArgs e)
+        {
+            CBfilters.SelectedIndex = 9;
+        }
+
+        private void P20_ValueChanged(object sender, EventArgs e)
+        {
+            CBfilters.SelectedIndex = 9;
+        }
+        private void P21_ValueChanged(object sender, EventArgs e)
+        {
+            CBfilters.SelectedIndex = 9;
+        }
+
+        private void P22_ValueChanged(object sender, EventArgs e)
+        {
+            CBfilters.SelectedIndex = 9;
+        }
+
+        private void Btnapply_Click(object sender, EventArgs e)
+        {   
+            
+            if (PBoriginalPic.Image == null)
+            {
+                MessageBox.Show("Sube una imagen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (PBoriginalPic.Image == PBoriginalPic.ErrorImage)
+            {
+                MessageBox.Show("Sube una imagen válida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+            else if (CBfilters.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecciona un filtro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                
+                var filterMatrix = new double[3,3];
+                if (CBfilters.SelectedIndex != 9)
+                {
+                    var filter = new Filters();
+                    filterMatrix = filter.GetDefinedMatrix(CBfilters.SelectedIndex);
+                }
+                else
+                {
+                    filterMatrix[0, 0] = (double)P00.Value;
+                    filterMatrix[0, 1] = (double)P01.Value;
+                    filterMatrix[0, 2] = (double)P02.Value;
+                    filterMatrix[1, 0] = (double)P10.Value;
+                    filterMatrix[1, 1] = (double)P11.Value;
+                    filterMatrix[1, 2] = (double)P12.Value;
+                    filterMatrix[2, 0] = (double)P20.Value;
+                    filterMatrix[2, 1] = (double)P21.Value;
+                    filterMatrix[2, 2] = (double)P22.Value;
+                }
+                var main = new MainClass();
+                PBfilteredPic.Image = main.ImageOperations(PBoriginalPic.Image, filterMatrix, "");
             }
         }
     }

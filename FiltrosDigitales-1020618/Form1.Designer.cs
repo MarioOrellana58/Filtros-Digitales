@@ -42,6 +42,7 @@
             this.P22 = new System.Windows.Forms.NumericUpDown();
             this.CBfilters = new System.Windows.Forms.ComboBox();
             this.BtnUploadImage = new System.Windows.Forms.Button();
+            this.lblInstrucción = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PBoriginalPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBfilteredPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.P00)).BeginInit();
@@ -79,6 +80,7 @@
             this.Btnapply.TabIndex = 11;
             this.Btnapply.Text = "Aplicar";
             this.Btnapply.UseVisualStyleBackColor = true;
+            this.Btnapply.Click += new System.EventHandler(this.Btnapply_Click);
             // 
             // P00
             // 
@@ -86,6 +88,7 @@
             this.P00.Name = "P00";
             this.P00.Size = new System.Drawing.Size(120, 20);
             this.P00.TabIndex = 13;
+            this.P00.ValueChanged += new System.EventHandler(this.P00_ValueChanged);
             // 
             // P01
             // 
@@ -93,6 +96,7 @@
             this.P01.Name = "P01";
             this.P01.Size = new System.Drawing.Size(120, 20);
             this.P01.TabIndex = 14;
+            this.P01.ValueChanged += new System.EventHandler(this.P01_ValueChanged);
             // 
             // P02
             // 
@@ -100,6 +104,7 @@
             this.P02.Name = "P02";
             this.P02.Size = new System.Drawing.Size(120, 20);
             this.P02.TabIndex = 15;
+            this.P02.ValueChanged += new System.EventHandler(this.P02_ValueChanged);
             // 
             // P10
             // 
@@ -107,6 +112,7 @@
             this.P10.Name = "P10";
             this.P10.Size = new System.Drawing.Size(120, 20);
             this.P10.TabIndex = 16;
+            this.P10.ValueChanged += new System.EventHandler(this.P10_ValueChanged);
             // 
             // P11
             // 
@@ -114,6 +120,7 @@
             this.P11.Name = "P11";
             this.P11.Size = new System.Drawing.Size(120, 20);
             this.P11.TabIndex = 17;
+            this.P11.ValueChanged += new System.EventHandler(this.P11_ValueChanged);
             // 
             // P12
             // 
@@ -121,6 +128,7 @@
             this.P12.Name = "P12";
             this.P12.Size = new System.Drawing.Size(120, 20);
             this.P12.TabIndex = 18;
+            this.P12.ValueChanged += new System.EventHandler(this.P12_ValueChanged);
             // 
             // P20
             // 
@@ -128,6 +136,7 @@
             this.P20.Name = "P20";
             this.P20.Size = new System.Drawing.Size(120, 20);
             this.P20.TabIndex = 19;
+            this.P20.ValueChanged += new System.EventHandler(this.P20_ValueChanged);
             // 
             // P21
             // 
@@ -135,6 +144,7 @@
             this.P21.Name = "P21";
             this.P21.Size = new System.Drawing.Size(120, 20);
             this.P21.TabIndex = 20;
+            this.P21.ValueChanged += new System.EventHandler(this.P21_ValueChanged);
             // 
             // P22
             // 
@@ -142,9 +152,11 @@
             this.P22.Name = "P22";
             this.P22.Size = new System.Drawing.Size(120, 20);
             this.P22.TabIndex = 21;
+            this.P22.ValueChanged += new System.EventHandler(this.P22_ValueChanged);
             // 
             // CBfilters
             // 
+            this.CBfilters.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBfilters.Items.AddRange(new object[] {
             "Difuminado",
             "Realzar",
@@ -156,11 +168,10 @@
             "Afilar",
             "Original",
             "Personalizado"});
-            this.CBfilters.Location = new System.Drawing.Point(464, 254);
+            this.CBfilters.Location = new System.Drawing.Point(466, 264);
             this.CBfilters.Name = "CBfilters";
             this.CBfilters.Size = new System.Drawing.Size(173, 21);
             this.CBfilters.TabIndex = 0;
-            this.CBfilters.Text = "-- SELECCIONA UN FILTRO --";
             // 
             // BtnUploadImage
             // 
@@ -172,11 +183,21 @@
             this.BtnUploadImage.UseVisualStyleBackColor = true;
             this.BtnUploadImage.Click += new System.EventHandler(this.BtnUploadImage_Click);
             // 
+            // lblInstrucción
+            // 
+            this.lblInstrucción.AutoSize = true;
+            this.lblInstrucción.Location = new System.Drawing.Point(497, 242);
+            this.lblInstrucción.Name = "lblInstrucción";
+            this.lblInstrucción.Size = new System.Drawing.Size(97, 13);
+            this.lblInstrucción.TabIndex = 23;
+            this.lblInstrucción.Text = "Selecciona un filtro";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 328);
+            this.Controls.Add(this.lblInstrucción);
             this.Controls.Add(this.BtnUploadImage);
             this.Controls.Add(this.CBfilters);
             this.Controls.Add(this.P22);
@@ -193,7 +214,6 @@
             this.Controls.Add(this.PBoriginalPic);
             this.Name = "Form1";
             this.Text = "Filtros digitales";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBoriginalPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBfilteredPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.P00)).EndInit();
@@ -206,6 +226,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.P21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.P22)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -225,6 +246,7 @@
         private System.Windows.Forms.NumericUpDown P22;
         private System.Windows.Forms.ComboBox CBfilters;
         private System.Windows.Forms.Button BtnUploadImage;
+        private System.Windows.Forms.Label lblInstrucción;
     }
 }
 
