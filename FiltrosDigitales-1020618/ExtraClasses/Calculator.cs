@@ -32,7 +32,7 @@ namespace FiltrosDigitales_1020618
                    matrix[0, 0] + matrix[0, 1] + matrix[0, 2];
         }
 
-        public double StandardizeResult(double notStandardizedResult)
+        public int StandardizeResult(double notStandardizedResult)
         {
             if (notStandardizedResult < 0)
             {
@@ -43,16 +43,8 @@ namespace FiltrosDigitales_1020618
                 return 200;
             }
             else
-            {
-                if (notStandardizedResult % 1 != 0)
-                {
-                    return Math.Round(notStandardizedResult);
-                }
-                else
-                {
-                    //it's already standardized
-                    return notStandardizedResult;
-                }
+            {                
+                return Convert.ToInt32(notStandardizedResult);                
             }
         }
     }

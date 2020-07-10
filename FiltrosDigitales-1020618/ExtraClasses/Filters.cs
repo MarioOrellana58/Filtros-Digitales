@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FiltrosDigitales_1020618
 {
-    public class Arrays
+    public class Filters
     {
-        public double[,] GetDefinedMatrix(string filterName)
+        public double[,] GetDefinedMatrixFor(string filterName)
         {
             switch (filterName)
             {
