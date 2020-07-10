@@ -87,29 +87,44 @@ namespace FiltrosDigitales_1020618
                 }
             }
 
+                
+                
             for (int i = 0; i < grayscaleImage.Width; i++)
             {
-                bool leftBorder = true;
+                
                 for (int j = 0; j < grayscaleImage.Height; j+= grayscaleImage.Height - 1 )
                 {
                     if (i != 0 && i != grayscaleImage.Width-1)
                     {
-                        if (leftBorder)
+                        if (j == 0)
                         {
-                            outputImage.SetPixel(i, j, Color.FromArgb(grayscaleImage.GetPixel(i, j).R, grayscaleImage.GetPixel(i, j).G, grayscaleImage.GetPixel(i, j).B));
+                            outputImage.SetPixel(i, j, Color.FromArgb(outputImage.GetPixel(i, j+1).R, outputImage.GetPixel(i, j+1).G, outputImage.GetPixel(i, j+1).B));                            
                         }
                         else
                         {
-                            outputImage.SetPixel(i, j, Color.FromArgb(grayscaleImage.GetPixel(i, j).R, grayscaleImage.GetPixel(i, j).G, grayscaleImage.GetPixel(i, j).B));
+                            outputImage.SetPixel(i, j, Color.FromArgb(outputImage.GetPixel(i, j-1).R, outputImage.GetPixel(i, j-1).G, outputImage.GetPixel(i, j-1).B));
                         }
                     }
                     else
                     {
-                        //hacer
+                        if (i == 0)
+                        {
+                            outputImage.SetPixel(i+1, j, Color.FromArgb(outputImage.GetPixel(i+1, j).R, outputImage.GetPixel(i+1, j).G, outputImage.GetPixel(i+1, j).B));                            
+                        }
+                        else
+                        {
+                            outputImage.SetPixel(i-1, j, Color.FromArgb(outputImage.GetPixel(i-1, j).R, outputImage.GetPixel(i-1, j).G, outputImage.GetPixel(i-1, j).B));
+                        }
+                        //hacer para la fila de arriba y abajo, ver las esquinas
                     }
-                    leftBorder = false;
+                    
                 }
             }
+
+
+            outputImage.SetPixel(0, 0, Color.FromArgb(outputImage.GetPixel(0, 1).R, outputImage.GetPixel(0, 1).G, outputImage.GetPixel(0, 1).B));
+            outputImage.SetPixel(0, outputImage.Width-1, Color.FromArgb(outputImage.GetPixel(0, outputImage.Width - 2).R, outputImage.GetPixel(0, outputImage.Width - 2).G, outputImage.GetPixel(0, outputImage.Width - 2).B));
+            outputImage.SetPixel(outputImage.Height-1, 0, Color.FromArgb(outputImage.GetPixel(0, 1).R, outputImage.GetPixel(0, 1).G, outputImage.GetPixel(0, 1).B));
 
             return outputImage;
         }
