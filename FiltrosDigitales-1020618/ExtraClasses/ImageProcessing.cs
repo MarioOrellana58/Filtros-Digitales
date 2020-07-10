@@ -64,6 +64,7 @@ namespace FiltrosDigitales_1020618
                             { Convert.ToDouble(grayscaleImage.GetPixel(i+2,j).R), Convert.ToDouble(grayscaleImage.GetPixel(i+2,j+1).R), Convert.ToDouble(grayscaleImage.GetPixel(i+2,j+2).R)}
                         };
 
+                    
                     var newRedPixel = calculate.StandardizeResult(calculate.SumAll(calculate.MatrixMultiplication(imageRegionRed, filter)));
 
                     var imageRegionGreen = new double[,] {
@@ -83,6 +84,30 @@ namespace FiltrosDigitales_1020618
                     var newBluePixel = calculate.StandardizeResult(calculate.SumAll(calculate.MatrixMultiplication(imageRegionBlue, filter)));
 
                     outputImage.SetPixel(i+1, j+1, Color.FromArgb(newRedPixel, newGreenPixel, newBluePixel));
+                }
+            }
+
+            for (int i = 0; i < grayscaleImage.Width; i++)
+            {
+                bool leftBorder = true;
+                for (int j = 0; j < grayscaleImage.Height; j+= grayscaleImage.Height - 1 )
+                {
+                    if (i != 0 && i != grayscaleImage.Width-1)
+                    {
+                        if (leftBorder)
+                        {
+                            outputImage.SetPixel(i, j, Color.FromArgb(grayscaleImage.GetPixel(i, j).R, grayscaleImage.GetPixel(i, j).G, grayscaleImage.GetPixel(i, j).B));
+                        }
+                        else
+                        {
+                            outputImage.SetPixel(i, j, Color.FromArgb(grayscaleImage.GetPixel(i, j).R, grayscaleImage.GetPixel(i, j).G, grayscaleImage.GetPixel(i, j).B));
+                        }
+                    }
+                    else
+                    {
+                        //hacer
+                    }
+                    leftBorder = false;
                 }
             }
 

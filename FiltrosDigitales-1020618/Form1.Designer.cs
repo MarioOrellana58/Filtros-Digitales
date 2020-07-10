@@ -61,7 +61,7 @@
             this.PBoriginalPic.Location = new System.Drawing.Point(27, 28);
             this.PBoriginalPic.Name = "PBoriginalPic";
             this.PBoriginalPic.Size = new System.Drawing.Size(252, 269);
-            this.PBoriginalPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PBoriginalPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PBoriginalPic.TabIndex = 0;
             this.PBoriginalPic.TabStop = false;
             // 
@@ -70,7 +70,7 @@
             this.PBfilteredPic.Location = new System.Drawing.Point(813, 28);
             this.PBfilteredPic.Name = "PBfilteredPic";
             this.PBfilteredPic.Size = new System.Drawing.Size(269, 269);
-            this.PBfilteredPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PBfilteredPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PBfilteredPic.TabIndex = 1;
             this.PBfilteredPic.TabStop = false;
             // 
