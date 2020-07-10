@@ -149,6 +149,7 @@ namespace FiltrosDigitales_1020618
                 }
                 var main = new MainClass();
                 PBfilteredPic.Image = main.ImageOperations(PBoriginalPic.Image, filterMatrix);
+                int a = 5;
             }
         }
 
