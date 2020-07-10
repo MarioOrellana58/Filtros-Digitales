@@ -14,6 +14,7 @@ namespace FiltrosDigitales_1020618
 {
     public partial class Form1 : Form
     {
+        bool changeValue = true;
         public Form1()
         {
             InitializeComponent();
@@ -41,46 +42,73 @@ namespace FiltrosDigitales_1020618
 
         private void P00_ValueChanged(object sender, EventArgs e)
         {
-            CBfilters.SelectedIndex = 9;
+            if (changeValue)
+            {
+                CBfilters.SelectedIndex = 9;
+            }
         }
 
         private void P01_ValueChanged(object sender, EventArgs e)
         {
-            CBfilters.SelectedIndex = 9;
+            if (changeValue)
+            {
+                CBfilters.SelectedIndex = 9;
+            }
         }
 
         private void P02_ValueChanged(object sender, EventArgs e)
         {
-            CBfilters.SelectedIndex = 9;
+            if (changeValue)
+            {
+                CBfilters.SelectedIndex = 9;
+            }
         }
 
         private void P10_ValueChanged(object sender, EventArgs e)
         {
-            CBfilters.SelectedIndex = 9;
+            if (changeValue)
+            {
+                CBfilters.SelectedIndex = 9;
+            }
         }
 
         private void P11_ValueChanged(object sender, EventArgs e)
         {
-            CBfilters.SelectedIndex = 9;
+            if (changeValue)
+            {
+                CBfilters.SelectedIndex = 9;
+            }
         }
 
         private void P12_ValueChanged(object sender, EventArgs e)
         {
-            CBfilters.SelectedIndex = 9;
+            if (changeValue)
+            {
+                CBfilters.SelectedIndex = 9;
+            }
         }
 
         private void P20_ValueChanged(object sender, EventArgs e)
         {
-            CBfilters.SelectedIndex = 9;
+            if (changeValue)
+            {
+                CBfilters.SelectedIndex = 9;
+            }
         }
         private void P21_ValueChanged(object sender, EventArgs e)
         {
-            CBfilters.SelectedIndex = 9;
+            if (changeValue)
+            {
+                CBfilters.SelectedIndex = 9;
+            }
         }
 
         private void P22_ValueChanged(object sender, EventArgs e)
         {
-            CBfilters.SelectedIndex = 9;
+            if (changeValue)
+            {
+                CBfilters.SelectedIndex = 9;
+            }
         }
 
         private void Btnapply_Click(object sender, EventArgs e)
@@ -120,8 +148,28 @@ namespace FiltrosDigitales_1020618
                     filterMatrix[2, 2] = (double)P22.Value;
                 }
                 var main = new MainClass();
-                PBfilteredPic.Image = main.ImageOperations(PBoriginalPic.Image, filterMatrix, "");
+                PBfilteredPic.Image = main.ImageOperations(PBoriginalPic.Image, filterMatrix);
             }
+        }
+
+        private void CBfilters_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changeValue = false;
+            if (CBfilters.SelectedIndex != 9)
+            {
+                var filters = new Filters();
+                var filterMatrix = filters.GetDefinedMatrix(CBfilters.SelectedIndex);
+                P00.Value = (decimal)filterMatrix[0, 0];
+                P01.Value = (decimal)filterMatrix[0, 1];
+                P02.Value = (decimal)filterMatrix[0, 2];
+                P10.Value = (decimal)filterMatrix[1, 0];
+                P11.Value = (decimal)filterMatrix[1, 1];
+                P12.Value = (decimal)filterMatrix[1, 2];
+                P20.Value = (decimal)filterMatrix[2, 0];
+                P21.Value = (decimal)filterMatrix[2, 1];
+                P22.Value = (decimal)filterMatrix[2, 2];
+            }
+            changeValue = true;
         }
     }
 }

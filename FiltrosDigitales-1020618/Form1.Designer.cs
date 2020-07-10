@@ -84,7 +84,23 @@
             // 
             // P00
             // 
+            this.P00.DecimalPlaces = 4;
+            this.P00.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.P00.Location = new System.Drawing.Point(337, 28);
+            this.P00.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.P00.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
             this.P00.Name = "P00";
             this.P00.Size = new System.Drawing.Size(120, 20);
             this.P00.TabIndex = 13;
@@ -92,7 +108,23 @@
             // 
             // P01
             // 
+            this.P01.DecimalPlaces = 4;
+            this.P01.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.P01.Location = new System.Drawing.Point(490, 28);
+            this.P01.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.P01.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
             this.P01.Name = "P01";
             this.P01.Size = new System.Drawing.Size(120, 20);
             this.P01.TabIndex = 14;
@@ -100,7 +132,23 @@
             // 
             // P02
             // 
+            this.P02.DecimalPlaces = 4;
+            this.P02.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.P02.Location = new System.Drawing.Point(644, 28);
+            this.P02.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.P02.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
             this.P02.Name = "P02";
             this.P02.Size = new System.Drawing.Size(120, 20);
             this.P02.TabIndex = 15;
@@ -108,7 +156,23 @@
             // 
             // P10
             // 
+            this.P10.DecimalPlaces = 4;
+            this.P10.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.P10.Location = new System.Drawing.Point(337, 116);
+            this.P10.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.P10.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
             this.P10.Name = "P10";
             this.P10.Size = new System.Drawing.Size(120, 20);
             this.P10.TabIndex = 16;
@@ -116,7 +180,23 @@
             // 
             // P11
             // 
+            this.P11.DecimalPlaces = 4;
+            this.P11.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.P11.Location = new System.Drawing.Point(490, 116);
+            this.P11.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.P11.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
             this.P11.Name = "P11";
             this.P11.Size = new System.Drawing.Size(120, 20);
             this.P11.TabIndex = 17;
@@ -124,7 +204,23 @@
             // 
             // P12
             // 
+            this.P12.DecimalPlaces = 4;
+            this.P12.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.P12.Location = new System.Drawing.Point(644, 116);
+            this.P12.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.P12.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
             this.P12.Name = "P12";
             this.P12.Size = new System.Drawing.Size(120, 20);
             this.P12.TabIndex = 18;
@@ -132,7 +228,23 @@
             // 
             // P20
             // 
+            this.P20.DecimalPlaces = 4;
+            this.P20.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.P20.Location = new System.Drawing.Point(337, 194);
+            this.P20.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.P20.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
             this.P20.Name = "P20";
             this.P20.Size = new System.Drawing.Size(120, 20);
             this.P20.TabIndex = 19;
@@ -140,7 +252,23 @@
             // 
             // P21
             // 
+            this.P21.DecimalPlaces = 4;
+            this.P21.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.P21.Location = new System.Drawing.Point(490, 194);
+            this.P21.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.P21.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
             this.P21.Name = "P21";
             this.P21.Size = new System.Drawing.Size(120, 20);
             this.P21.TabIndex = 20;
@@ -148,7 +276,23 @@
             // 
             // P22
             // 
+            this.P22.DecimalPlaces = 4;
+            this.P22.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.P22.Location = new System.Drawing.Point(644, 194);
+            this.P22.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.P22.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
             this.P22.Name = "P22";
             this.P22.Size = new System.Drawing.Size(120, 20);
             this.P22.TabIndex = 21;
@@ -172,6 +316,7 @@
             this.CBfilters.Name = "CBfilters";
             this.CBfilters.Size = new System.Drawing.Size(173, 21);
             this.CBfilters.TabIndex = 0;
+            this.CBfilters.SelectedIndexChanged += new System.EventHandler(this.CBfilters_SelectedIndexChanged);
             // 
             // BtnUploadImage
             // 

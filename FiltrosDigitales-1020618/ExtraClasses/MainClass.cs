@@ -11,19 +11,30 @@ namespace FiltrosDigitales_1020618.ExtraClasses
 {
     public class MainClass
     {
-        public Image ImageOperations(Image originalPicture, double[,] filterMatrix, string imageFormat)
+        public Image ImageOperations(Image originalPicture, double[,] filterMatrix)
         {
-            var process = new ImageProcessing();
 
+            //get image format
+            var imgguid = originalPicture.RawFormat.Guid;
+            var rawformat = string.Empty;
+            foreach (ImageCodecInfo codec in ImageCodecInfo.GetImageDecoders())
+            {
+                if (codec.FormatID == imgguid)
+                    rawformat = codec.MimeType;
+            }
+            var format = rawformat.Contains("jpeg") ? ImageFormat.Jpeg : ImageFormat.Png;
+
+            //open an stream for image
             var stream = new MemoryStream();
-            var format = imageFormat == "jpg" ? ImageFormat.Jpeg : ImageFormat.Png;
             originalPicture.Save(stream, format);
             stream.Position = 0;
 
-
+            var process = new ImageProcessing();
             var greyscaleImage = process.ConvertToGrayScale(stream);
-            var output = process.ApplyImageFilter(greyscaleImage, filterMatrix);
-            return null;
+
+            var output = (Image)process.ApplyImageFilter(greyscaleImage, filterMatrix);
+
+            return output;
         }
     }
 }
