@@ -128,7 +128,7 @@ namespace FiltrosDigitales_1020618
             }
             else
             {
-                
+                MessageBox.Show("Cargando, espera un momento", "Cargando", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 var filterMatrix = new double[3,3];
                 if (CBfilters.SelectedIndex != 9)
                 {
@@ -149,7 +149,7 @@ namespace FiltrosDigitales_1020618
                 }
                 var main = new MainClass();
                 PBfilteredPic.Image = main.ImageOperations(PBoriginalPic.Image, filterMatrix);
-                int a = 5;
+                MessageBox.Show("¡Listo!", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
